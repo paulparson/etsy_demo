@@ -1,0 +1,61 @@
+@import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic);
+
+body {
+	background-color: #f5f5f1;
+	color: #333;
+	font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+	min-height: 80px;
+	border-radius: 0;
+	border: none;
+}
+.navbar-default {
+	background-color: #eb5367;
+}
+.navbar-header {
+	margin-top: 10px;
+}
+.container-fluid > .navbar-header {	margin-right: 30px;}
+.navbar-brand:hover {
+	color: #FFF !important;
+	opacity: 0.7;
+}
+.navbar-default .navbar-brand {
+	color: #FFF;
+	font-size: 36px;
+	font-weight: 300;
+}
+
+.navbar-default .navbar-nav > li > a {
+	color: #FFF;
+}
+ul.navbar-nav {
+	margin-top: 13px;
+}
+.navbar-nav > li > a {
+	font-weight: 700;
+	padding-right: 20px;
+	padding-left: 20px;
+	margin-right: 5px;
+}
+.navbar-nav > li > a:hover {
+	color: #FFF !important;
+	background-color: #ef7988 !important;
+	border-radius: 7px;
+}
+
+.center {
+	text-align: center;
+}
+
+.col-md-3:nth-child(4n+1) {
+	clear:left;
+}
+.col-md-6 {
+	h3 {font-size: 45px;}
+	h5 {font-size: 25px;}
+	p {font-size:18px;}
+}
