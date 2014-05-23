@@ -8,18 +8,9 @@
             <h3><%= listing.name %></h3>
             <p><%= number_to_currency(listing.price) %></p>
             <p><%= "Sold by #{listing.user.name}" %></p>
-            <% if (user_signed_in?) && (current_user == listing.user) %> 
-              <%= link_to content_tag(:button, content_tag(:span, nil, class: "glyphicon glyphicon-pencil"), class: "btn btn-default"), edit_listing_path(listing) %>
-                <%= link_to content_tag(:button, content_tag(:span, nil, class: "glyphicon glyphicon-trash"), class: "btn btn-default"), listing, method: :delete, data: { confirm: 'Are you sure?' } %>
-              </button>
-            <% end %>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
-
-<% if user_signed_in? %>
-  <%= link_to 'Add a New Listing', new_listing_path, class: "btn btn-primary btn-lg" %>
-<% end %>

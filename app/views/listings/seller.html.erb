@@ -1,0 +1,30 @@
+ <div class="center">
+    <% if user_signed_in? %>
+      <div class="container">
+        <div class="row add-listing">
+          <p class="lead">You're just getting started!</p>
+          <p>Add as many listings as you like. We want the world to see your amazing creations!</p><br>
+          <%= link_to 'Add a New Listing', new_listing_path, class: "btn btn-primary btn-lg" %>
+        </div>
+      </div>
+    <% end %>
+  <div class="row">
+    <% @listings.each do |listing| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+          <%= link_to image_tag(listing.image.url), listing, class: "zoom", :data => { :title => 'Preview '+listing.name } %>
+          <div class="caption">
+            <h3><%= listing.name %></h3>
+            <p><%= number_to_currency(listing.price) %></p>
+            <p><%= "Sold by #{listing.user.name}" %></p>
+            <% if (user_signed_in?) && (current_user == listing.user) %> 
+              <%= link_to content_tag(:button, content_tag(:span, nil, class: "glyphicon glyphicon-pencil"), class: "btn btn-default"), edit_listing_path(listing) %>
+                <%= link_to content_tag(:button, content_tag(:span, nil, class: "glyphicon glyphicon-trash"), class: "btn btn-default"), listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
