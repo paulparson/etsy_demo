@@ -9,8 +9,8 @@
 <body>
 <%= render 'layouts/header' %>	
 
-<div class="container">
-
+<div class="container-fluid main">
+  <div class="container">
   <% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
       <div class="alert alert-<%= name == :notice ? "danger" : "success" %> alert-dismissable">
@@ -21,7 +21,7 @@
   <% end %>
 
 <%= yield %>
-
+  </div>
 </div>
 
 <%= render 'layouts/footer' %>
