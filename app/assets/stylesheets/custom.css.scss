@@ -188,6 +188,9 @@ footer {
 .margin-top-45 {
 	margin-top: 45px;
 }
+.margin-top-5 {
+	margin-top: 5px;
+}
 
 .media-object {
 	max-width: 128px;	
@@ -197,4 +200,7 @@ footer {
 	padding: 45px 0;
 	border: 5px dotted #dfdfd7;
 	margin-bottom: 45px;
+}
+th.name {
+	min-width: 100px;
 }
