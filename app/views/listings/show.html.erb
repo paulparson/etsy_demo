@@ -1,16 +1,18 @@
-<div class="row">
-	<div class="col-md-6">
-		<div class="thumbnail">
-			<%= image_tag @listing.image.url %>
+<div class="container pad-bottom-50">
+	<div class="row">
+		<div class="col-md-6">
+			<div class="thumbnail">
+				<%= image_tag @listing.image.url %>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<h3><%= @listing.name %></h3>
+			<p><%= number_to_currency(@listing.price) %></p>
+			<p><%= @listing.description %></p>
 		</div>
 	</div>
-	<div class="col-md-6">
-		<h3><%= @listing.name %></h3>
-		<p><%= number_to_currency(@listing.price) %></p>
-		<p><%= @listing.description %></p>
-	</div>
+	<% if current_user == @listing.user %>
+		<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-default btn-sm" %>
+	<% end %>
+	<%= link_to 'Back', listings_path, class: "btn btn-default btn-sm" %>
 </div>
-<% if current_user == @listing.user %>
-	<%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-default btn-sm" %>
-<% end %>
-<%= link_to 'Back', listings_path, class: "btn btn-default btn-sm" %>

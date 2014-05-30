@@ -1,16 +1,37 @@
- <div class="center">
-  <div class="row">
-    <% @listings.each do |listing| %>
-      <div class="col-md-3">
-        <div class="thumbnail">
-          <%= link_to image_tag(listing.image.url), listing, class: "zoom", :data => { :title => 'Preview '+listing.name } %>
-          <div class="caption">
-            <h3><%= listing.name %></h3>
-            <p><%= number_to_currency(listing.price) %></p>
-            <p><%= "Sold by #{listing.user.name}" %></p>
+<div class="container-fluid">
+ <% if user_signed_in? %> 
+  <div class="banner">
+    <div class="container">
+      <h1 class="pad-top-130">Handcrafted goods <br>
+        from around the world.</h1>
+      <h2>Discover one-of-a-kind items!</h2>
+    </div>
+  </div>
+  <% else %> 
+  <div class="banner">
+    <div class="container">
+      <h1 class="pad-top-80">Handcrafted goods <br>
+        from around the world.</h1>
+      <h2>Discover one-of-a-kind items!</h2>
+      <%= link_to "Start Selling!", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+    </div>
+  </div>
+  <% end %>
+</div>
+   <div class="center container">
+    <div class="row">
+      <% @listings.each do |listing| %>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <%= link_to image_tag(listing.image.url), listing, class: "zoom", :data => { :title => 'Preview '+listing.name } %>
+            <div class="caption">
+              <h3><%= listing.name %></h3>
+              <p><%= number_to_currency(listing.price) %></p>
+              <p><%= "Sold by #{listing.user.name}" %></p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+
